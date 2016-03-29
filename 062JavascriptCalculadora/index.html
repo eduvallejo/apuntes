@@ -1,88 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>calculadora</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-	    var numero = [3];
-	    var contador = 0;
-	    var resultado = 0;
-	    function pillarTecla (tecla) {
-	    	document.getElementById('salida').innerHTML = tecla; 
-	    	
-	    	// if (tecla == "=") {
-	    	// 	calcular();
-	    	// };
-	    	switch (tecla) {
-	    		case "=":
-	    			calcular();
-	    			break;
-	    		default:
-	    			// statements_def
-	    			break;
-	    	}
+<meta charset="utf-8">
+<title>calculadora</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+    var numero = [3];
+    var contador = 0;
+    var resultado = 0;
+    function pillarTecla (tecla) {
+    	
+    	switch (tecla) {
+    		case "=":
+    			calcular();
+    			break;
+    		case "C":
+    			console.log("c!");
+    			resetear();
+    			break;
+    		default:
+    			// statements_def
+		    	numero[contador] = tecla;
+		    	document.getElementById('salida').innerHTML = "";
+		    	for (var i = 0; i < numero.length; i++) {
+			    	 document.getElementById('salida').innerHTML += numero[i];
+		    	 }; 
+		    	contador++;
+    			break;
+    	}
 
-	    	numero[contador] = tecla;
-	    	document.getElementById('salida2').innerHTML = "";
-	    	for (var i = 0; i < numero.length; i++) {
-	    	 	document.getElementById('salida2').innerHTML += numero[i];
-	    	 	console.log("contador: " + contador);
-	    	 }; 
-	    	 contador++;
+    	
+	}
 
+	function resetear (argument) {
+    	document.getElementById('salida').innerHTML = "";
+    	document.getElementById('salida2').innerHTML = "";
+
+    	for (var i = 0; i < numero.length; i++) {
+    		numero[i] = "";
+    	};
+		contador = 0;
+	}
+
+
+	function calcular () {
+		
+		switch (numero[1]) {
+			case "+":
+				var resultado = (parseInt(numero[0])+parseInt(numero[2]));
+				// document.getElementById('salida').innerHTML = resultado;
+				// alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
+	    	 	document.getElementById('salida2').innerHTML = resultado;
+
+				break;
+			case "-":
+				var resultado = (parseInt(numero[0]) - parseInt(numero[2]));
+				// document.getElementById('salida').innerHTML = resultado;
+	    	 	document.getElementById('salida2').innerHTML = resultado;
+				break;
+			case "/":
+				var resultado = (parseInt(numero[0]) / parseInt(numero[2]));
+				// document.getElementById('salida').innerHTML = resultado;
+	    	 	document.getElementById('salida2').innerHTML = resultado;
+				break;
+			case "*":
+				var resultado = (parseInt(numero[0]) * parseInt(numero[2]));
+				// document.getElementById('salida').innerHTML = resultado;
+	    	 	document.getElementById('salida2').innerHTML = resultado;
+				break;
+			default:
+				// statements_def
+				break;
 		}
-
-
-		function calcular () {
-			console.log("CALCULAR()");
-			for (var i = 0; i < numero.length; i++) {
-				// console.log("numeroLenght: " + numero.length);
-				console.log(numero[i]);
-			}
-
-			switch (numero[1]) {
-				case "+":
-					console.log("+ = " + numero[1] );
-					var resultado = (parseInt(numero[0])+parseInt(numero[2]));
-					console.log("resultado: " + resultado);
-					// document.getElementById('salida').innerHTML = resultado;
-					alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
-					break;
-				case "-":
-					console.log("+ = " + numero[1] );
-					var resultado = (parseInt(numero[0]) - parseInt(numero[2]));
-					console.log("resultado: " + resultado);
-					// document.getElementById('salida').innerHTML = resultado;
-					alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
-					break;
-				case "/":
-					console.log("+ = " + numero[1] );
-					var resultado = (parseInt(numero[0]) / parseInt(numero[2]));
-					console.log("resultado: " + resultado);
-					// document.getElementById('salida').innerHTML = resultado;
-					alert(numero[0]+numero[1] + numero[2] + " = " + resultado);
-					break;
-				case "*":
-					console.log("+ = " + numero[1] );
-					var resultado = (parseInt(numero[0]) * parseInt(numero[2]));
-					console.log("resultado: " + resultado);
-					// document.getElementById('salida').innerHTML = resultado;
-					alert(numero[0]+numero[1] + numero[2] + " = " + resultado);
-					break;
-				// case "-":
-				// 	console.log("+ = " + numero[1] );
-				// 	var resultado = (parseInt(numero[0]) - parseInt(numero[2]));
-				// 	console.log("resultado: " + resultado);
-				// 	// document.getElementById('salida').innerHTML = resultado;
-				// 	alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
-				// 	break;
-				default:
-					// statements_def
-					break;
-			}
-		}
-    </script>
+	}
+</script>
 </head>
 
 <body>
