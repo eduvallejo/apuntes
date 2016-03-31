@@ -34,7 +34,7 @@
 
 	function resetear (argument) {
     	document.getElementById('salida').innerHTML = "";
-    	document.getElementById('salida2').innerHTML = "";
+    	document.getElementById('salida').innerHTML = "";
 
     	for (var i = 0; i < numero.length; i++) {
     		numero[i] = "";
@@ -50,23 +50,23 @@
 				var resultado = (parseInt(numero[0])+parseInt(numero[2]));
 				// document.getElementById('salida').innerHTML = resultado;
 				// alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
-	    	 	document.getElementById('salida2').innerHTML = resultado;
+	    	 	document.getElementById('salida').innerHTML = resultado;
 
 				break;
 			case "-":
 				var resultado = (parseInt(numero[0]) - parseInt(numero[2]));
 				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida2').innerHTML = resultado;
+	    	 	document.getElementById('salida').innerHTML = resultado;
 				break;
 			case "/":
 				var resultado = (parseInt(numero[0]) / parseInt(numero[2]));
 				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida2').innerHTML = resultado;
+	    	 	document.getElementById('salida').innerHTML = resultado;
 				break;
 			case "*":
 				var resultado = (parseInt(numero[0]) * parseInt(numero[2]));
 				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida2').innerHTML = resultado;
+	    	 	document.getElementById('salida').innerHTML = resultado;
 				break;
 			default:
 				// statements_def
@@ -79,13 +79,12 @@
 <body>
 <form class="contorno">
 	<p id="salida"></p>
-	<p id="salida2"></p>
 	<div class="rojas">
 		<input type="button" value="Retroc" onclick="pillarTecla('Retroc')">
 		<input type="button" value="CE" onclick="pillarTecla('CE')">
 		<input type="button" value="C" onclick="pillarTecla('C')">
 	</div>
-	<input type="button" value="7" onclick="pillarTecla('7')">
+	<input type="button" value="7 " onclick="pillarTecla('7')">
 	<input type="button" value="8" onclick="pillarTecla('8')">
 	<input type="button" value="9" onclick="pillarTecla('9')">
 	<input type="button" value="/" onclick="pillarTecla('/')">
