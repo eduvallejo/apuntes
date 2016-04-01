@@ -15,38 +15,22 @@
 		document.getElementById('salida').innerHTML = "";
 		for (var i = 0; i < numero.length; i++) {
 			document.getElementById('salida').innerHTML +=numero[i];
-		}; = 
+		};
     }
     function pillarTecla (tecla) {
     	
     	switch (tecla) {
     		
     		case "C":
-    			console.log("c!");=
+    			console.log("c!");
     			resetear();
-    			break;
-    		case "CE":
-    			console.log("c!");
-    			numero[contador] =  "";
-    			mostrar();
-    			break;
-    		case "Retroc":
-    			console.log("c!");
-    			// numero[contador] = numero[contador].substring(0, numero[contador].length - 1);
-    			numero[contador] = numero[contador].slice(0, -1);
-    			mostrar();
-    			break;
-    		case "+/-":
-    			console.log("+/-");
-    			numero[contador] = (-numero[contador]);
-    			mostrar();
     			break;
     		default:
     			// statements_def
 		    	numero[contador] += tecla;
 		    	// document.getElementById('salida').innerHTML = "";
 		    	// for (var i = 0; i < numero.length; i++) {
-			    document.getElementById('salida').innerHTML += tecla;
+			    	 document.getElementById('salida').innerHTML += tecla;
 		    	 // }; 
 		    	// contador++;
     			break;
@@ -97,13 +81,6 @@
 		}
 	}
 
-	function calcularPorciento () {
-		console.log("numero1: " + numero[1]);
-				var resultado = (parseFloat(numero[2])*parseFloat(numero[0])/100);
-				console.log()	
-	    	 	document.getElementById('salida').innerHTML = resultado;
-	}
-
 	function operar (argument) {
 		contador++;
 		numero[contador] = argument;
@@ -117,13 +94,6 @@
 
 	function calcularRaiz (argument) {
 		var resultado = Math.sqrt(parseInt(numero[0]));
-		console.log(numero[0]);
-		// document.getElementById('salida').innerHTML = resultado;
-	 	document.getElementById('salida').innerHTML = resultado;
-	}
-
-	function calcularInversa (argument) {
-		var resultado = 1/(parseFloat(numero[0]));
 		console.log(numero[0]);
 		// document.getElementById('salida').innerHTML = resultado;
 	 	document.getElementById('salida').innerHTML = resultado;
@@ -148,12 +118,12 @@
 	<input type="button" value="5" onclick="pillarTecla('5')">
 	<input type="button" value="6" onclick="pillarTecla('6')">
 	<input type="button" value="*" onclick="operar('*')">
-	<input type="button" value="%" onclick="calcularPorciento('%')">
+	<input type="button" value="%" onclick="operar('%')">
 	<input type="button" value="1" onclick="pillarTecla('1')">
 	<input type="button" value="2" onclick="pillarTecla('2')">
 	<input type="button" value="3" onclick="pillarTecla('3')">
 	<input type="button" value="-" onclick="operar('-')">
-	<input type="button" value="1/x" onclick="calcularInversa('1/x')">
+	<input type="button" value="1/x" onclick="pillarTecla('1/x')">
 	<input type="button" value="0" onclick="pillarTecla('0')">
 	<input type="button" value="+/-" onclick="pillarTecla('+/-')">
 	<input type="button" value="." onclick="pillarTecla('.')">
