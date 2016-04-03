@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <title>calculadora</title>
 <link rel="stylesheet" href="css/style.css">
+<script src="js/comenzarNumero.js"></script>
+<script src="js/calcular.js"></script>
+<script src="js/resetear.js"></script>
+
 <script>
     var numero = [];
     var contador = 0;
@@ -11,15 +15,28 @@
 	//para q no de NAN al concatenar
     numero[contador]="";
 
+    var numeroNuevo = false;
+
     function mostrar (argument) {
 		document.getElementById('salida').innerHTML = "";
 		for (var i = 0; i < numero.length; i++) {
 			document.getElementById('salida').innerHTML +=numero[i];
 		}; 
     }
+
     function pillarTecla (tecla) {
     	
-    	switch (tecla) {
+    	//comprobar si emepzamos de nuevo
+    	if (numeroNuevo == true) {
+    		numeroNuevo = false;
+			document.getElementById('salida').innerHTML = "";
+			for (var i = 0; i < numero.length; i++) {
+				numero[i] = "";
+			};
+			contador = 0;
+    	}
+    	//leer teclas
+		switch (tecla) {
     		
     		case "C":
     			console.log("c!");
@@ -44,57 +61,12 @@
     		default:
     			// statements_def
 		    	numero[contador] += tecla;
-		    	// document.getElementById('salida').innerHTML = "";
-		    	// for (var i = 0; i < numero.length; i++) {
+		    	console.log("contador: " + contador);
 			    document.getElementById('salida').innerHTML += tecla;
-		    	 // }; 
-		    	// contador++;
     			break;
     	}
 
     	
-	}
-
-	function resetear (argument) {
-    	document.getElementById('salida').innerHTML = "";
-    	document.getElementById('salida').innerHTML = "";
-
-    	for (var i = 0; i < numero.length; i++) {
-    		numero[i] = "";
-    	};
-		contador = 0;
-	}
-
-
-	function calcular () {
-		console.log("numero1: " + numero[1]);
-		switch (numero[1]) {
-			case "+":
-				var resultado = (parseFloat(numero[0])+parseFloat(numero[2]));
-				// document.getElementById('salida').innerHTML = resultado;
-				// alert(numero[0]+numero[1]+numero[2] + " = " + resultado);
-	    	 	document.getElementById('salida').innerHTML = resultado;
-
-				break;
-			case "-":
-				var resultado = (parseFloat(numero[0]) - parseFloat(numero[2]));
-				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida').innerHTML = resultado;
-				break;
-			case "/":
-				var resultado = (parseFloat(numero[0]) / parseFloat(numero[2]));
-				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida').innerHTML = resultado;
-				break;
-			case "*":
-				var resultado = (parseFloat(numero[0]) * parseFloat(numero[2]));
-				// document.getElementById('salida').innerHTML = resultado;
-	    	 	document.getElementById('salida').innerHTML = resultado;
-				break;
-			default:
-				// statements_def
-				break;
-		}
 	}
 
 	function calcularPorciento () {
