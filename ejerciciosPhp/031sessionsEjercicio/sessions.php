@@ -13,41 +13,33 @@ echo "Datos usuarios validado: <br>";
 
 $numRows = mysqli_num_rows($consulta);
 
+while ($fila = $consulta->fetch_assoc()) {
+    echo $fila['LOGIN']."<br>";
+    echo $fila['PASSWORD']."<br>";
+    echo $fila['CATEGORIA']."<br>";
+    echo $fila['nota']."<br>";
+    echo "<br>";
+}
+
+
 if ( $numRows == 0) {
 	header("location: index.html");
 }
 else{
 	$_SESSION['login'] = $login;
-	$_SESSION['categoria'] = $fila[2];
+	$_SESSION['nota'] = $fila['nota'];
+	$_SESSION['categoria'] = $fila['CATEGORIA'];
 	echo "numRows: " . $numRows . "<br>";
 	echo "categoria: " . $categoria;
 
-	// $_SESSION['usuario'] = $login;
-	// $_SESSION['categoria'] = $categoria;
-	// // echo mysqli_num_rows($consulta);
+	
 	if($_SESSION['categoria'] == 1){
 		header("location: admin.php");
 	}
 	if ($_SESSION['categoria'] == 0) {
-		header("location: alumno.php");
+		header("location: user.php");
 	}
 }
-
-
-//mostrar todos usuarios
-// $consulta = $conexion -> query("SELECT * FROM usuarios");
-
-// echo "DATOS todos usuarios : <br>";
-// while ($fila = $consulta->fetch_assoc()) {
-//     echo $fila['LOGIN']."<br>";
-//     echo $fila['PASSWORD']."<br>";
-//     echo $fila['CATEGORIA']."<br>";
-//     echo "<br>";
-// }
-
-// if (mysqli_num_rows($consulta) == 0) {
-// 	header("location: index.html");
-// }
 
 
 

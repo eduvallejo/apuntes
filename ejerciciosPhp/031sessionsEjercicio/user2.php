@@ -5,7 +5,7 @@ session_start();
 echo "SESSION: " . $_SESSION['login'] ;
 
 //
-echo '</br><a href="nota.php">Ver notaaa</a>';
+echo 'Nota: ' . $_SESSION['nota'];
 
 //atras
 echo '</br><a href="alumno.php">Atrás</a>';
