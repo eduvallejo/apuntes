@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>camboi de imágenes</title>
+	<style>
+	#foto{
+		width: 300px;
+		height: 300px;
+		border: 1px solid #000;
+		background-image: url(bebe1.jpg);
+		background-size: auto 100%;
+	}
+	</style>
+	<script>
+	function cambiarFotoOver() {
+	 	document.getElementById("foto").style.backgroundImage = "url('bebe2.jpg')" ; 
+	 	// console.log(color);
+	}
+	function cambiarFotoOut () {
+		document.getElementById("foto").style.backgroundImage = "url('bebe1.jpg')" ; 
+	}
+	</script>
+	
+</head>
+<body>
+	<div id= "foto" onmouseover="cambiarFotoOver()" onmouseout="cambiarFotoOut()"></div>
+</body>
+</html>

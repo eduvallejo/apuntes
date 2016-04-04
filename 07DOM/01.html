@@ -1,3 +1,8 @@
+<!-- PREGUNTAS RESUELTAS -->
+<!-- 1 - El código funciona correctamente -->
+<!-- 2 - La variable se define fuera de la función porque, si estuviera dentro, se asignaría el valor 9 a la variable siempre q se ejecutara la función -->
+<!-- 3 - a partir de la linea 37 -->
+<!-- 4- Los botones acaban cambiando la apariencia de un elemento con el id imgCarrusel, y , al poder haber solo un elemento con un id , lo q sucede es q la segunda asignacion de id no tiene efecto-->
 <html>
 <head>
 <title>Curso JavaScript aprenderaprogramar.com</title> 
@@ -26,7 +31,13 @@
 	} 
 	</style> 
 	<script type="text/javascript"> 
+
 		var numeroImagenActual = 9; 
+
+		/*Resolución pregunta número 3*/
+		var valorSrc = ['http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg', 'http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_6_humor_informatico_foto.jpg', 'http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_11_humor_informatico_foto.jpg'];
+		var valorAlt = ['Camiseta 9 aprenderaprogramar.com', 'Camiseta 6 aprenderaprogramar.com', 'Camiseta 11 aprenderaprogramar.com'];
+		var valorTitle = [ 'Diálogo entre informáticos', 'Desbordado por los números', 'Estudiando programacion'];
 
 		function moverImagen(movimiento) { 
 			if (numeroImagenActual == 6 && movimiento == 'atras' || numeroImagenActual == 11 && movimiento == 'adelante') {
@@ -34,20 +45,21 @@
 			}
 			if (numeroImagenActual == 11 && movimiento == 'atras' || numeroImagenActual == 6 && movimiento =='adelante') { 
 				valorNuevoNumeroImagen = 9;
-				document.getElementById('imgCarrusel').src = 'http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg';
-				document.getElementById('imgCarrusel').alt = 'Camiseta 9 aprenderaprogramar.com'; document.getElementById('imgCarrusel').title = 'Diálogo entre informáticos'; 
+				document.getElementById('imgCarrusel').src = valorSrc[0];
+				document.getElementById('imgCarrusel').alt = valorAlt[0];
+				document.getElementById('imgCarrusel').title = valorTitle[0];
 			}
 			if (numeroImagenActual == 9 && movimiento == 'atras') {
 				valorNuevoNumeroImagen = 6;
-				document.getElementById('imgCarrusel').src = 'http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_6_humor_informatico_foto.jpg';
-				document.getElementById('imgCarrusel').alt = 'Camiseta 6 aprenderaprogramar.com';
-				document.getElementById('imgCarrusel').title = 'Desbordado por los números';
+				document.getElementById('imgCarrusel').src = valorSrc[1];
+				document.getElementById('imgCarrusel').alt = valorAlt[1];
+				document.getElementById('imgCarrusel').title = valorTitle[1];
 			}
 			if (numeroImagenActual == 9 && movimiento == 'adelante') { 
 				valorNuevoNumeroImagen = 11;
-				document.getElementById('imgCarrusel').src = 'http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_11_humor_informatico_foto.jpg';
-				document.getElementById('imgCarrusel').alt = 'Camiseta 11 aprenderaprogramar.com';
-				document.getElementById('imgCarrusel').title = 'Estudiando programacion';
+				document.getElementById('imgCarrusel').src =  valorSrc[2];
+				document.getElementById('imgCarrusel').alt = valorAlt[2];
+				document.getElementById('imgCarrusel').title = valorTitle[2];
 			} 
 			numeroImagenActual = valorNuevoNumeroImagen;
 			document.getElementById('numeracion').firstChild.nodeValue = 'Camiseta ' + numeroImagenActual; 
@@ -55,6 +67,15 @@
 	</script> 
 </head> 
 <body>
+	<div > 
+		<p>Pulsa adelante o atrás</p> 
+		<h1 id="numeracion">Camiseta 9</h1> 
+		<img id="imgCarrusel" src="http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg" alt="Camiseta 9 aprenderaprogramar.com" title="Diálogo entre informáticos"> 
+		<div id="contenedor"> 
+			<div id ="atras" onclick="moverImagen('atras')"> <<< Atrás </div> 
+			<div id="adelante" onclick="moverImagen('adelante')" >Adelante >>></div> 
+		</div>
+	</div>
 	<div > 
 		<p>Pulsa adelante o atrás</p> 
 		<h1 id="numeracion">Camiseta 9</h1> 

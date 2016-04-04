@@ -2,47 +2,40 @@
 
 session_start();
 
-
 $login = $_POST['login'];
 $password = $_POST['password'];
+$conexion = new mysqli("localhost", "root", "", "Prueba") or die("error en el servidor");
 
-//validacion
-// //detect user
-if (($login == 'admin' && $password == 'admin')) {
+$consulta = $conexion -> query("SELECT * FROM usuarios WHERE LOGIN='" . $login . "' AND PASSWORD='" . $password . "'");
 
-	$conexion = new mysqli("localhost", "root", "", "Prueba")
-		or die("error en el servidor");
+echo "DATOS usuarios validado: <br>";
+while ($row = $consulta->fetch_assoc()) {
+    echo $row['PASSWORD']."<br>";
+    echo $row['CATEGORIA']."<br>";
+    echo "<br>";
+}
+if (mysqli_num_rows($consulta) == 0) {
+	header("location: index.html");
+}
 
-	$consulta = $conexion -> query("SELECT * FROM usuarios WHERE LOGIN='" . $login . "' AND PASSWORD='" . $password . "'");
 
-	// $consulta = $conexion -> query("SELECT * FROM usuarios");
+//mostrar todos usuarios
 
-	
-	while ($row = $consulta->fetch_assoc()) {
-        echo $row['LOGIN']."<br>";
-        echo $row['PASSWORD']."<br>";
-        echo $row['CATEGORIA']."<br>";
-        echo "<br>";
-    }
-	
-	// mysql_select_db("Prueba", $conexion) 
-	// 	or die ("error en la BBDD");
-	// $sql = 'SELECT LOGIN FROM usuarios WHERE COGNOMS=""';
-	// $result = mysql_query($sql, $conexion) or die(mysql_error());
+$consulta = $conexion -> query("SELECT * FROM usuarios");
 
-	// var_dump($consulta["LOGIN"]);
+echo "DATOS todos usuarios : <br>";
+while ($row = $consulta->fetch_assoc()) {
+    echo $row['LOGIN']."<br>";
+    echo $row['PASSWORD']."<br>";
+    echo $row['CATEGORIA']."<br>";
+    echo "<br>";
+}
 
-	//inicializamos una variable SESSION con el nombre de admin
-	// $_SESSION['admin'] = $login;
-	// // echo "test";
-	// header("location:admin.php");
-}//si no mete ningun nombre de usuario le mandamos de vuelta
-// else if($login == null){
-// 	header("location:index.html");
-// }
-// else{
-// 	$_SESSION['alumno'] = $login;
-// 	header("location:alumno.php");
-// }
+
+if (mysqli_num_rows($consulta) == 0) {
+	header("location: index.html");
+}
+
+
 
 ?>

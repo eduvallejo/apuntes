@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>colores</title>
+	<style>
+	.cuadrado{
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000;
+	}
+	/*#footer{
+		display: block;
+		height: 50px;
+		border: 1px solid #000;
+	}*/
+	</style>
+	<script>
+	function cambiarColorFondo (color) {
+	 	document.body.style.backgroundColor = color; 
+	 	console.log(color);
+	}
+	</script>
+	
+</head>
+<body>
+	<div class="cuadrado" id= "white" style="background-color:white" onmouseover="cambiarColorFondo('white')"></div>
+	<div class="cuadrado" id= "red" style="background-color:red" onmouseover="cambiarColorFondo('red')"></div>
+	<div class="cuadrado" id= "yellow" style="background-color:yellow" onmouseover="cambiarColorFondo('yellow')"></div>
+	<div class="cuadrado" id= "green" style="background-color:green" onmouseover="cambiarColorFondo('green')"></div>
+	<div class="cuadrado" id= "blue" style="background-color:blue" onmouseover="cambiarColorFondo('blue')"></div>
+	<!-- <footer id="footer"></footer> -->
+</body>
+</html>
