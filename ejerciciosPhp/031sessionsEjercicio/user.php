@@ -2,7 +2,10 @@
 session_start();
 // echo "user";
 // $_SESSION["alumno"];
-echo "SESSION: " . $_SESSION['login'] ;
+echo "SESSION: " . $_SESSION['login'] . "<br>";
+
+echo "CATEGORIA: " . $_SESSION['categoria'] . "<br>";
+
 
 //
 echo '</br><a href="user2.php">Ver notaaa</a>';

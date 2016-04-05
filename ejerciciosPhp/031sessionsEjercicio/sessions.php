@@ -18,17 +18,20 @@ while ($fila = $consulta->fetch_assoc()) {
     echo $fila['PASSWORD']."<br>";
     echo $fila['CATEGORIA']."<br>";
     echo $fila['nota']."<br>";
+	$_SESSION['categoria'] = $fila['CATEGORIA'];
+	$_SESSION['nota'] = $fila['nota'];
     echo "<br>";
 }
 
+//parece q no lee las variables fuera del while
+// echo "filaCateg" . $fila['CATEGORIA'] ."<br>";
+// echo "filaNota" . $fila['nota'] ."<br>";
 
 if ( $numRows == 0) {
 	header("location: index.html");
 }
 else{
 	$_SESSION['login'] = $login;
-	$_SESSION['nota'] = $fila['nota'];
-	$_SESSION['categoria'] = $fila['CATEGORIA'];
 	echo "numRows: " . $numRows . "<br>";
 	echo "categoria: " . $categoria;
 
