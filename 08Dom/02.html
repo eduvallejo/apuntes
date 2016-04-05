@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+    	input{
+    		display: block;
+    	}
+    </style>
+    <script>
+		function desaparecer (argument) {
+			document.getElementById(argument).style.visibility = "hidden";
+		}
+		
+		function aparecer (argument) {
+			document.getElementById('button').style.visibility = "visible";
+			document.getElementById('input').style.visibility = "visible";
+			document.getElementById('div').style.visibility = "visible";
+		}
+    </script>
+</head>
+<body>
+	<input id="button" type="button" value="boton q desaparece" onmouseover="desaparecer(this.id)">
+	<input id="input" type="text" value="Caja que desaparece" onmouseover="desaparecer(this.id)" >
+	<div id="div" onmouseover="desaparecer(this.id)" >Texto q desaparece</div>
+
+	<input type="button" value="aparecer" onclick="aparecer()">
+</body>
+</html>
