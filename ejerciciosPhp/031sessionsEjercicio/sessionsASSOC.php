@@ -1,5 +1,5 @@
 <?php
-//este es como fetch_assoc pero con  fetch_array
+
 session_start();
 
 $login = $_POST['login'];
@@ -11,10 +11,16 @@ $consulta = $conexion -> query("SELECT * FROM usuarios WHERE LOGIN='" . $login .
 
 echo "Datos usuarios validado: <br>";
 
+$numRows = mysqli_num_rows($consulta);
 
-$fila = $consulta->fetch_array(MYSQLI_NUM);
-$numRows = $consulta -> num_rows;
- 
+while ($fila = $consulta->fetch_assoc()) {
+    echo $fila['LOGIN']."<br>";
+    echo $fila['PASSWORD']."<br>";
+    echo $fila['CATEGORIA']."<br>";
+    echo $fila['nota']."<br>";
+	
+    echo "<br>";
+}
 
 //parece q no lee las variables fuera del while
 // echo "filaCateg" . $fila['CATEGORIA'] ."<br>";
@@ -24,11 +30,10 @@ if ( $numRows == 0) {
 	header("location: index.html");
 }
 else{
-	$_SESSION['usuario'] = $login;
-	// echo "numRows: " . $numRows . "<br>";
-	// echo "categoria: " . $categoria;
-	$_SESSION['categoria'] = $fila[2];
-	$_SESSION['nota'] = $fila[3];
+	$_SESSION['login'] = $login;
+	$_SESSION['categoria'] = $fila['CATEGORIA'];
+	$_SESSION['nota'] = $fila['nota'];
+	
 	if($_SESSION['categoria'] == 1){
 		header("location: admin.php");
 	}
