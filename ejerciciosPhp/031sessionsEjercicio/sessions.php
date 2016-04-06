@@ -4,7 +4,7 @@ session_start();
 
 $login = $_POST['login'];
 $password = $_POST['password'];
-$conexion = new mysqli("localhost", "root", "", "Prueba") or die("error en el servidor");
+$conexion = new mysqli("localhost", "root", "", "prueba") or die("error en el servidor");
 
 $consulta = $conexion -> query("SELECT * FROM usuarios WHERE LOGIN='" . $login . "' AND PASSWORD='" . $password . "'");
 // var_dump($consulta->fetch_array(MYSQLI_ASSOC));
