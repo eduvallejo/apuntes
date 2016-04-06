@@ -11,20 +11,47 @@
     		width: 150px;
     		text-align: center;
     		background-color: orange;
+    		position: relative;
     	}
     </style>
     <script>
 		function funcion1 (argument) {
 		 	document.getElementById(argument).style.backgroundColor = 'red';
-		 	document.getElementById(argument).style.height = '75px';
+		 	var altura = document.getElementById(argument).offsetHeight;
+		 	altura = altura - 10;
+		 	document.getElementById(argument).style.height = altura/2 + 'px';
+		 	console.log(altura); 
+		}
 
+		function funcion2 (argument) {
+		 	document.getElementById(argument).style.backgroundColor = 'black';
+		 	
+		 	document.getElementById(argument).style.top = '50px';
+		 	// console.log(altura); 
+		}
+
+		function funcion3 (argument) {
+		 	document.getElementById(argument).style.backgroundColor = 'white';
+		 	
+		 	document.getElementById(argument).style.top = '-50px';
+		 	// console.log(altura); 
+		}
+
+		function funcion4 (argument) {
+		 	document.getElementById(argument).style.backgroundColor = 'blue';
+		 	var altura = document.getElementById(argument).offsetHeight;
+		 	var ancho = document.getElementById(argument).offsetWidth;
+		 	
+		 	document.getElementById(argument).style.height = (altura*2) + 'px';
+		 	document.getElementById(argument).style.width = (ancho*2) + 'px';
+		 	// console.log(altura); 
 		}
     </script>
 </head>
 <body>
 	<div id="caja1" onmouseover="funcion1('caja1')"><span>Caja 1</span></div>
-	<div id="caja2" onmouseover="funcion('caja')"><span>Caja 2</span></div>
-	<div id="caja3" onmouseover="funcion('caja')"><span>Caja 3</span></div>
-	<div id="caja4" onmouseover="funcion('caja')"><span>Caja 4</span></div>
+	<div id="caja2" onmouseover="funcion2('caja2')"><span>Caja 2</span></div>
+	<div id="caja3" onmouseover="funcion3('caja3')"><span>Caja 3</span></div>
+	<div id="caja4" onmouseover="funcion4('caja4')"><span>Caja 4</span></div>
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>factorial</title>
+    <script>
+	function factorial (argument) {
+		var numero;
+	    	//pedir numero mientras numero NO esté entre 1 y 15
+	    	do{
+	    		// statement
+	    		numero = prompt("Please enter your number");
+
+	    	} while (numero <= 0 || numero > 15);
+
+	    	//variables total=1, n=1
+	    	var total = 1;
+	    	var n = 1;
+
+	    	//mientras n diferente de numero
+	    	while (n != numero) {
+	    		total = total * numero;
+	    		numero--;
+	    	}
+
+	    	alert(total);
+	}
+    </script>
+</head>
+	
+<body onload="factorial()">
+    <p onclick="factorial()">otra vez</p>
+</body>
+</html>
