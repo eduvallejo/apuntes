@@ -6,19 +6,15 @@ $login = $_POST['login'];
 $password = $_POST['password'];
 $conexion = new mysqli("localhost", "root", "", "prueba") or die("error en el servidor");
 
-$consulta = $conexion -> query("SELECT * FROM usuarios WHERE LOGIN='" . $login . "' AND PASSWORD='" . $password . "'");
+$consulta = $conexion -> query("SELECT * FROM usuarios WHERE login='" . $login . "' AND password='" . $password . "'");
 // var_dump($consulta->fetch_array(MYSQLI_ASSOC));
 
 echo "Datos usuarios validado: <br>";
 
 
+
 $fila = $consulta->fetch_array(MYSQLI_NUM);
 $numRows = $consulta -> num_rows;
- 
-
-//parece q no lee las variables fuera del while
-// echo "filaCateg" . $fila['CATEGORIA'] ."<br>";
-// echo "filaNota" . $fila['nota'] ."<br>";
 
 if ( $numRows == 0) {
 	header("location: index.html");
