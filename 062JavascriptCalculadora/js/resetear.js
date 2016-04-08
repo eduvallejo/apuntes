@@ -4,4 +4,7 @@ function resetear (argument) {
 		numero[i] = "";
 	};
 	contador = 0;
+	numero[0]=0;
+	numeroNuevo = true;
+	resultado = 0;
 }
