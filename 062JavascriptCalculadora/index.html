@@ -7,6 +7,12 @@
 <script src="js/comenzarNumero.js"></script>
 <script src="js/calcular.js"></script>
 <script src="js/resetear.js"></script>
+<script src="js/operar.js"></script>
+<script src="js/pillarTecla.js"></script>
+<script src="js/mostrar.js"></script>
+<script src="js/calcularPorciento.js"></script>
+<script src="js/calcularPorciento.js"></script>
+
 
 <script>
     var numero = [];
@@ -17,89 +23,6 @@
 
     var numeroNuevo = false;
 
-    function mostrar (argument) {
-		document.getElementById('salida').innerHTML = "";
-		for (var i = 0; i < numero.length; i++) {
-			document.getElementById('salida').innerHTML +=numero[i];
-		}; 
-    }
-
-    function pillarTecla (tecla) {
-    	
-    	//comprobar si emepzamos de nuevo
-    	if (numeroNuevo == true) {
-    		numeroNuevo = false;
-			document.getElementById('salida').innerHTML = "";
-			for (var i = 0; i < numero.length; i++) {
-				numero[i] = "";
-			};
-			contador = 0;
-    	}
-    	//leer teclas
-		switch (tecla) {
-    		
-    		case "C":
-    			console.log("c!");
-    			resetear();
-    			break;
-    		case "CE":
-    			console.log("c!");
-    			numero[contador] =  "";
-    			mostrar();
-    			break;
-    		case "Retroc":
-    			console.log("c!");
-    			// numero[contador] = numero[contador].substring(0, numero[contador].length - 1);
-    			numero[contador] = numero[contador].slice(0, -1);
-    			mostrar();
-    			break;
-    		case "+/-":
-    			console.log("+/-");
-    			numero[contador] = (-numero[contador]);
-    			mostrar();
-    			break;
-    		default:
-    			// statements_def
-		    	numero[contador] += tecla;
-		    	console.log("contador: " + contador);
-			    document.getElementById('salida').innerHTML += tecla;
-    			break;
-    	}
-
-    	
-	}
-
-	function calcularPorciento () {
-		console.log("numero1: " + numero[1]);
-				var resultado = (parseFloat(numero[2])*parseFloat(numero[0])/100);
-				console.log()	
-	    	 	document.getElementById('salida').innerHTML = resultado;
-	}
-
-	function operar (argument) {
-		contador++;
-		numero[contador] = argument;
-		console.log("numero["+contador+"] = " + numero[contador]);
-
-		contador++;
-		//para q no de NAN al concatenar
-		numero[contador]="";
-		mostrar();
-	}
-
-	function calcularRaiz (argument) {
-		var resultado = Math.sqrt(parseInt(numero[0]));
-		console.log(numero[0]);
-		// document.getElementById('salida').innerHTML = resultado;
-	 	document.getElementById('salida').innerHTML = resultado;
-	}
-
-	function calcularInversa (argument) {
-		var resultado = 1/(parseFloat(numero[0]));
-		console.log(numero[0]);
-		// document.getElementById('salida').innerHTML = resultado;
-	 	document.getElementById('salida').innerHTML = resultado;
-	}
 </script>
 </head>
 
