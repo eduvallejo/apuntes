@@ -7,6 +7,7 @@ function pillarTecla (tecla) {
 			numero[i] = "";
 		};
 		contador = 0;
+		numero[0] = resultado;
 	}
 	//leer teclas
 	switch (tecla) {
@@ -28,6 +29,9 @@ function pillarTecla (tecla) {
 			break;
 		case "+/-":
 			console.log("+/-");
+			console.log("contador : " + contador);
+			console.log("numerocontadorActual : " + numero[contador]);
+			
 			numero[contador] = (-numero[contador]);
 			mostrar();
 			break;
