@@ -7,27 +7,35 @@
     <link rel="stylesheet" href="styleEdu.css">
     <script type="text/javascript">
     function cambiarImg (argument) {
-    	document.getElementById(argument).style.left= '0px';
+    	// if (argument == 'dcha') {
+    	document.getElementById('dcha').style.left= '0px';
     	console.log("mouseover : ");
-    	if (argument == 'dcha') {
-    		document.getElementById('izq').style.position = 'relative';
-    		document.getElementById('izq').style.left= '83.5%';
-    		console.log("argumentdcha");
-    		
-    	}
- 		
+		document.getElementById('izq').style.position = 'relative';
+		document.getElementById('izq').style.left= '83.5%';
+		console.log("argumentdcha");
+    	// }	
     }
+
+    function mouseOut (argument) {
+    	// document.getElementById('dcha').style.right= '0px';
+  		document.getElementById('izq').style.position = 'relative';
+  		document.getElementById('izq').style.left= '0px';
+    	document.getElementById('dcha').style.left= '83.5%';
+
+		console.log("argumentdcha");
+    }
+
     </script>
 
 </head>
 
 <body>
 	<header>
-		<img id="izq"  class="izquierda" src="groucho_i.jpg" height="133" width="200" alt="">
+		<img id="izq" onmouseover="cambiarImg()" onmouseout="mouseOut()" class="izquierda" src="groucho_i.jpg" height="133" width="200" alt="">
 		<div class="textoCentrado">
 			<h1>CITAS DE GROUCHO MARX</h1>
 		</div>
-		<img id="dcha" onmouseover="cambiarImg('dcha')" class="derecha" src="groucho_d.jpg" height="133" width="200" alt="">
+		<img id="dcha" onmouseover="cambiarImg()" onmouseout="mouseOut()" class="derecha" src="groucho_d.jpg" height="133" width="200" alt="">
 	</header>
 	<p class="discontinua">
 		¡Hay tantas cosas en la vida más importantes que el dinero! ... ¡Pero cuestan tanto!
